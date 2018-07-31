@@ -30,13 +30,12 @@ fi
 # Add our custom aliases to bash-it
 ln $params $script_home/custom.aliases.bash $HOME/.bash_it/aliases/custom.aliases.bash
 
-# Add Dustin's syntax highlights for Bro
-for i in ftdetect syntax; do
-    if [ ! -f $HOME/.vim/$i/bro.vim ]; then
-        curl -fLo $HOME/.vim/$i/bro.vim --create-dirs \
-        https://raw.githubusercontent.com/mephux/bro.vim/master/$i/bro.vim
-    fi
-done
+# Configure vim and neovim
+mkdir ~/.vim/
+ln $params $script_home/vimrc $HOME/.vim/vimrc
+mkdir -p ~/.config/
+ln $params ~/.config/nvim $HOME/.vim
+ln $params $HOME/.vim/vimrc $HOME/.vim/init.vim
 
 # Add solarized colors for vim if not present
 if [ ! -f $HOME/.vim/colors/solarized.vim ]; then
@@ -45,7 +44,7 @@ if [ ! -f $HOME/.vim/colors/solarized.vim ]; then
 fi
 
 # Symlink all of our dotfiles to the home directory
-for i in .vimrc .dircolors .bashrc .bash_profile .bash_darwin .tmux.conf;
+for i in .dircolors .bashrc .bash_profile .bash_darwin .tmux.conf;
 do
   ln $params $script_home/$i $HOME/$i
 done
