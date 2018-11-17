@@ -18,7 +18,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'klen/python-mode'
 Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-fugitive'
-"Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -55,3 +55,12 @@ let g:netrw_liststyle = 1
 let g:netrw_browse_split = 4
 let g:netrw_winsize = 39
 
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
