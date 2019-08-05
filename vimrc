@@ -8,19 +8,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-
 Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'raimondi/delimitmate'
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'klen/python-mode'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe',  {'do': 'python ./install.py'}
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
-
-" Add plugins to &runtimepath
+Plug 'klen/python-mode', {'branch': 'develop'}
 call plug#end()
 
 syntax on
@@ -56,11 +53,19 @@ let g:netrw_browse_split = 4
 let g:netrw_winsize = 39
 
 
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_python_checkers = ['pyflakes']
+
+"let g:pymode_lint_on_write = 0
+autocmd FileType python set colorcolumn=88
+let g:pymode_options_max_line_length = 88
+let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
+let g:pymode_options_colorcolumn = 1
