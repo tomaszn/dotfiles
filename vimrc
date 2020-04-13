@@ -13,9 +13,10 @@ Plug 'kien/ctrlp.vim'
 Plug 'raimondi/delimitmate'
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
-Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'Valloric/YouCompleteMe',  {'do': 'python ./install.py'}
+Plug 'Valloric/YouCompleteMe',  {'do': './install.py'}
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
 Plug 'vim-syntastic/syntastic'
 Plug 'klen/python-mode', {'branch': 'develop'}
 call plug#end()
