@@ -30,10 +30,9 @@ else
 fi
 
 # Configure bash-it
-bash-it enable plugin fzf
-bash-it enable completion git
-bash-it enable completion tmux
-bash-it enable alias git
+bash-it enable plugin alias-completion fzf git man 
+bash-it enable completion bash-it git kubectl tmux vault
+bash-it enable alias ag docker git vim yarn
 
 # Add our custom aliases to bash-it
 ln $params $script_home/custom.aliases.bash $HOME/.bash_it/aliases/custom.aliases.bash
